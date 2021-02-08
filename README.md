@@ -2,17 +2,6 @@
 
 ## Mobile App Development
 
-This repository contains the projects I use for my CS 374 / 639 classes.
-
-* CS 374
-* CS 639
-
-*Italic*
-
-**Bold**
-
-**BRANCH CHRISTELLE-DEVELOP**
-
-*Hello World*
+This repository is created for CS 374 / CS 639.
 
 
