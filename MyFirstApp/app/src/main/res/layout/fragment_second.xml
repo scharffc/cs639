@@ -27,23 +27,23 @@
         android:id="@+id/textview_random"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_second_fragment"
+        android:text="R"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="72sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button_second"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_header"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_header" />
 
     <Button
         android:id="@+id/button_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/previous"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_random" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_random" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

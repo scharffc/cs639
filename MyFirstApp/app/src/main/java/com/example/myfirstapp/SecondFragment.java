@@ -1,6 +1,7 @@
 package com.example.myfirstapp;
 
 import android.os.Bundle;
+import android.util.Log; 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,10 +33,14 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Retrieving the value of the passed argument
         Integer count = SecondFragmentArgs.fromBundle(getArguments()).getMyArg();
-        //String countText = getString(R.string.random_heading, count);
+        Log.i("SECONDFRAGMENT", "count " + count);
+        // Get the string and format it with the count (use of the %d)
+        String countText = getString(R.string.random_heading, count);
+        // Set the textview header
         TextView headerView = view.getRootView().findViewById(R.id.textview_header);
-        //headerView.setText(countText);
+        headerView.setText(countText);
 
         binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,12 +50,12 @@ public class SecondFragment extends Fragment {
             }
         });
 
+        // Showing the random number between 0 and count
         Random random = new java.util.Random();
         Integer randomNumber = 0;
         if (count > 0) {
             randomNumber = random.nextInt(count + 1);
         }
-
         TextView randomView = view.getRootView().findViewById(R.id.textview_random);
         randomView.setText(randomNumber.toString());
     }

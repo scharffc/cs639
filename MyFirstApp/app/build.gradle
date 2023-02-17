@@ -31,6 +31,8 @@ android {
     }
 }
 
+apply plugin: 'androidx.navigation.safeargs'
+
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.0'
@@ -43,4 +45,3 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
-apply plugin: 'androidx.navigation.safeargs'
