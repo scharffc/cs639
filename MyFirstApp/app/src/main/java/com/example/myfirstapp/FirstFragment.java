@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,9 +16,11 @@ import androidx.navigation.fragment.NavHostFragment;
 
 public class FirstFragment extends Fragment {
 
+    public static final String FIRSTFRAGMENT = "FIRSTFRAGMENT";
+
     //private FragmentFirstBinding binding;
-    TextView showCountTextView;
-    Button toastButton;
+    private TextView showCountTextView;
+    private Button toastButton;
 
     @Override
     public View onCreateView(
@@ -50,11 +53,12 @@ public class FirstFragment extends Fragment {
         // Now that the view exists we can interact with it!
 
         // When we click on the count button, 1 is added to the value of the current counter and displayed on the screen
+        // Implementation as an anonymous class
         view.findViewById(R.id.count_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Example of a log to appear in the LogCat
-                Log.i("FIRSTFRAGMENT", "I am here");
+                Log.i(FIRSTFRAGMENT, "I am here");
                 countMe(view);
             }
         });
@@ -63,10 +67,11 @@ public class FirstFragment extends Fragment {
         view.findViewById(R.id.toast_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast myToast = Toast.makeText(getActivity(), "Hello toast!", Toast.LENGTH_LONG);
-                Log.i("FIRSTFRAGMENT", "myToast " + myToast);
+                Toast myToast =  Toast.makeText(getActivity(), "Hello toast!", Toast.LENGTH_LONG);
                 // Do not forget to show the toast!
                 myToast.show();
+                Log.i(FIRSTFRAGMENT, "myToast " + myToast);
+                Log.i(FIRSTFRAGMENT, "The toast button was clicked");
             }
         });
 
@@ -76,7 +81,7 @@ public class FirstFragment extends Fragment {
             public void onClick(View view) {
                 // Getting the current value of count from showCountTextView
                 int currentCount = Integer.parseInt(showCountTextView.getText().toString());
-                Log.i("FIRSTFRAGMENT", "currentCount " + currentCount);
+                Log.i(FIRSTFRAGMENT, "currentCount " + currentCount);
 
                 // Create an action with currentCount as the argument to actionFirstFragmentToSecondFragment()
                 // See the navigation graph
