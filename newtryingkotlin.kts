@@ -4,13 +4,13 @@
 
 // Code tested as is at https://play.kotlinlang.org/
 
-fun main(args: Array<String>){
+fun main() {
     
 	// Hello World
 
 	println("Hello, world!")
 
-	// Val, var and const
+	// val, var and const
 
 	// const can only be used at the top level of a file or inside an object declaration (but not inside a class declaration):
 	// const val g = 9.81 // acceleration due to gravity
@@ -39,7 +39,7 @@ fun main(args: Array<String>){
 	println("** String interpolation demo")
 	val name = "Anne"
 	val yearOfBirth = 1985
-	val yearNow = 2018
+	val yearNow = 2023
 	val message = "$name is ${yearNow - yearOfBirth} years old"
     
     println(message)
@@ -50,7 +50,7 @@ fun main(args: Array<String>){
 	languageName2 = null // languageName2 can be set to null
     
     var languageName3: String = "abc"
-	// languageName3 = null // languageName3 cannot be set to null, compilation error
+	//languageName3 = null // languageName3 cannot be set to null, compilation error
 	// var languageName4: String = null // compilation error too
 
 	// Conditionals
@@ -89,7 +89,7 @@ fun main(args: Array<String>){
 
     println("** Functions")
     
-    println("** Sum demo")
+    println("sum demo")
     
     // With return
 	fun sum(a: Int, b: Int): Int {
@@ -101,7 +101,9 @@ fun main(args: Array<String>){
 	fun sum1(a: Int, b: Int): Int = a + b
 	println(sum1(1, 7))
 
+    println("square demo")
 	fun square(number: Int) = number * number
+    println(square(10))
 
 	// 1 No parameters, with return
 	println("** generateAnswerString demo 1")
@@ -147,8 +149,9 @@ fun main(args: Array<String>){
 
 	// 4 Simplification without return and with =
 	println("** generateAnswerString2 demo")
-	fun generateAnswerString2(countThreshold: Int): String = if (count > countThreshold) {
-    	"I have the answer"
+	fun generateAnswerString2(countThreshold: Int): String = 
+    	if (count > countThreshold) {
+    		"I have the answer"
 		} else {
     		"The answer eludes me"
 		}
@@ -166,13 +169,13 @@ fun main(args: Array<String>){
 	showOptional("John")
 	showOptional("Bill", 5)
     showOptional("Bill", 5, ".")
+    showOptional("Bill", separator=";")
 
 	// Anonymous functions
 
     println("** Anonymous function demo")
 	val stringLengthFunc: (String) -> Int = 
-    	{ input -> input.length
-	}
+    	{ input -> input.length}
 
 	val stringLength: Int = stringLengthFunc("Android")
 	println("Android has " + stringLength + " characters")
@@ -181,11 +184,11 @@ fun main(args: Array<String>){
 
 	// callAndPrint
 
-	fun callAndPrint(function: (Int, Int) -> Int) {
-    	println("callAndPrint ${function(2, 0)}")
+	fun callAndPrint(myfunction: (Int, Int) -> Int) {
+    	println("callAndPrint ${myfunction(2, 0)}")
 	}
 
-	callAndPrint({x,y -> x+y + 5})
+	callAndPrint({x,y -> x + y + 5})
     
     // stringMapper
 
@@ -200,10 +203,14 @@ fun main(args: Array<String>){
 	println("Android is so so!")
 	val sm1 = stringMapper("Android is so so!", {input -> input.length})
 	println(sm1)
+   
+    // 1a with 1 paramater and a function returning 5
+   	val sm1a = stringMapper("Android is so so!", {input -> 5})
+   	println(sm1a)
 
 	// 2 calling stringMapper - 2 parameters - curried function
 	println("Android is great!")
-	val sm2 = stringMapper("Android is great!!!!") { input -> input.length }
+	val sm2 = stringMapper("Android is great!!!!"){ input -> input.length }
 	println(sm2)
     
     // Collections
@@ -214,9 +221,9 @@ fun main(args: Array<String>){
     
     // Generics
 	
-    val listNames = listOf("Anne", "Karen", "Peter") // List<String>
-	val mapLetters = mapOf("a" to 1, "b" to 2, "c" to 3)  // Map<String, Int>
-	val setLetters = setOf("a", "b", "c")                 // Set<String>
+    val listNames = listOf("Anne", "Karen", "Peter") 		// List<String>
+	val mapLetters = mapOf("a" to 1, "b" to 2, "c" to 3)  	// Map<String, Int>
+	val setLetters = setOf("a", "b", "c")                 	// Set<String>
 
 	println(listNames)
 	println(mapLetters)
@@ -228,7 +235,7 @@ fun main(args: Array<String>){
 	val mapLettersMutable = mutableMapOf("a" to 1, "b" to 2, "c" to 3)
 	val setLettersMutable = mutableSetOf("a", "b", "c")
 
-    print(listNamesMutable)
+    println(listNamesMutable)
 	listNamesMutable.add("Vidya")
 	println(listNamesMutable)
     
@@ -243,7 +250,6 @@ fun main(args: Array<String>){
 	val noInts: List<Int> = listOf()
 	val noStrings = listOf<String>()
 	val emptyMap = mapOf<String, Int>()
-    
     
 	// Loops
 
@@ -262,6 +268,7 @@ fun main(args: Array<String>){
 
 	// Iterate over the entries as separate key and value objects
 	// Shows pattern matching
+	// Tuple unpacking
 	println("Loop 4")
 	val mapStates = mutableMapOf(1 to "NY", 2 to "NJ")
 	for ((key, value) in mapStates) {
@@ -334,7 +341,7 @@ fun main(args: Array<String>){
     	var age: Int
 
     	init {
-        	age = 2021 - yearOfBirth
+        	age = 2023 - yearOfBirth
     	}
 	}
 
@@ -360,7 +367,19 @@ fun main(args: Array<String>){
 	val a = Person2("Jaime", 20)
 	println(a.beOver18().toString())
 	val b = Person2("Jack") // age = 0
-	val c = Person2(1995, "Lynne") // age = 23
+	val c = Person2(1995, "Lynne")
+    
+    // Inheritance
+    // class Derived: Base
+    // An open class is extentadable in Kotlin. open instances and functions carn be overriden
+    
+    open class Shape {
+    	open val vertexCount: Int = 0
+	}
+
+	class Rectangle : Shape() {
+    	override val vertexCount = 4
+	}
 
 	// Car
 
@@ -399,14 +418,14 @@ fun main(args: Array<String>){
     
     // Generics
 
-    println("** Gerics demo")
-	class TreeNode<T>(val value: T?, val next: TreeNode<T>? = null){
+    println("** Generics demo")
+	class ListNode<T>(val value: T?, val next: ListNode<T>? = null){
     	fun firstNode():T? {
         	return value
     	}
 	}
 
-	val t1 = TreeNode<Int>(6, null)
-	val t = TreeNode<Int>(5, t1)
+	val t1 = ListNode<Int>(6, null)
+	val t = ListNode<Int>(5, t1)
 	println(t.firstNode())
 }
