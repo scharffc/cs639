@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button_toast"
+        android:layout_width="398dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_200"
+        android:onClick="showToast"
+        android:text="@string/button_label_toast"
+        android:textSize="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_count"
+        android:layout_width="399dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:backgroundTint="@color/purple_200"
+        android:onClick="countUp"
+        android:text="@string/button_label_count"
+        android:textSize="60sp"
+        app:layout_constraintStart_toEndOf="@+id/button_toast"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/show_count"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:text="@string/count_initial_value"
+        android:textAlignment="center"
+        android:textColor="@color/purple_500"
+        android:textSize="120sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_toast" />
+</androidx.constraintlayout.widget.ConstraintLayout>
