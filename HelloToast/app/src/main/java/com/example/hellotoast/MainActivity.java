@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
         final Intent myIntent = new Intent(Intent.ACTION_SENDTO);
         myIntent.setData(Uri.parse("smsto:" + Uri.encode("12123461016")));
-        myIntent.putExtra("sms_body", "hello");
+        myIntent.putExtra("sms_body", "hello world");
         startActivity(myIntent);
     }
 
