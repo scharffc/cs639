@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/button_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+           />
+
+        <ImageView
+            android:id="@+id/imageview_local"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_first"
+            app:srcCompat="@drawable/scharff"
+            android:contentDescription="Image of me" />
+
+        <TextView
+            android:id="@+id/textview_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dr. Scharff is a Professor of Computer Science at Pace University. She has a Ph.D. in Symbolic Artificial Intelligence from INRIA (French Institute for Research in Computer Science and Automation) in France. Her research focuses on AI, global software engineering and ICTD. She was awarded grants from NSF, IBM, Microsoft, VentureWell, and Google. She has been a Fulbright scholar in Senegal in 2012 and 2019."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageview_local"
+             />
+
+        <ImageView
+            android:id="@+id/imageview_remote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_bio"
+            android:contentDescription="Image from the web" />
+
+        <TextView
+            android:id="@+id/textview_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="...Loading..."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageview_remote"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+
+    <!-- Removed in ImageView app:layout_constraintBottom_toBottomOf="@id/textview_bio"-->
